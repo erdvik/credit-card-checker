@@ -24,9 +24,29 @@ const batch = [valid1, valid2, valid3, valid4, valid5, invalid1, invalid2, inval
 
 
 // Add your functions below:
+const validateCred = (arr) => {
+    let sum = arr[arr.length-1];
+    let count = 0;
+    for (let i = arr.length-2; i >= 0; i--) {
+        if (count % 2 == 0) {
+            let num = arr[i] * 2;
+            if (num > 9) {
+                num -= 9;
+            }
+            sum += num;
+            count++;
+        } else {
+            sum += arr[i];
+            count++;
+        }
+    }
+    if (sum % 10 == 0) {
+        return true; 
+    }
+    return false;
+}
 
-
-
+batch.forEach(card => console.log(`${card} is ${validateCred(card) ? 'valid' : 'invalid'}`));
 
 
 
