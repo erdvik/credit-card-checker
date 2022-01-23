@@ -42,13 +42,29 @@ const validateCred = arr => {
     }
     return (sum % 10 == 0) ? true : false;
 }
-
 // batch.forEach(card => console.log(`${card} is ${validateCred(card) ? 'valid' : 'invalid'}`));
 
 const findInvalidCards = arr => arr.filter(card => !validateCred(card));
-
 // console.log(findInvalidCards(batch));
 
-
+const idInvalidCardCompanies = arr => {
+    let dict = {
+        3: 'Amex',
+        4: 'Visa',
+        5: 'Mastercard',
+        6: 'Discover'
+    }
+    let companies = new Set();
+    arr.forEach(card => {
+        let num = card[0];
+        if (num in dict) {
+            companies.add(dict[num]);
+        } else {
+            console.log(`Number: ${num}; Company not found`);
+        }
+    })
+    return companies; 
+}
+//console.log(idInvalidCardCompanies(findInvalidCards(batch)));
 
 
