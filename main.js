@@ -40,7 +40,7 @@ const validateCred = arr => {
             count++;
         }
     }
-    return (sum % 10 == 0) ? true : false;
+    return sum % 10 == 0;
 }
 // batch.forEach(card => console.log(`${card} is ${validateCred(card) ? 'valid' : 'invalid'}`));
 
